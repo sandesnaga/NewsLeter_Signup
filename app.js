@@ -31,12 +31,13 @@ var options = {
   url: "https://us20.api.mailchimp.com/3.0/lists/c432dbf348",
   method: "POST",
   headers: {
-    "Authorization": "SandeshNaga 47b97c1a79086e81aaf454d28935a653-us20"
+    "Authorization": "SandeshNaga f30ab3f68386731a1cfc4a03f231a145"
   },
-   // body: jsonData
+   body: jsonData
 };
 request(options, function(error, response, body){
   if (error) {
+
     res.sendFile(__dirname+"/failure.html")
   }else {
     if(response.statusCode == 200){
@@ -44,6 +45,7 @@ request(options, function(error, response, body){
     }
     else {
       res.sendFile(__dirname+"/failure.html")
+
     }
   }
 
@@ -53,16 +55,9 @@ app.post("/failure", function(req, res){
   res.redirect("/");
 });
 
-
-
-
-
-
-
-
-app.listen(3000, function(){
+app.listen( process.env.PORT ||  3000, function(){
   console.log("listening on port 3000");
 });
 
-//API  47b97c1a79086e81aaf454d28935a653-us20
+//API f30ab3f68386731a1cfc4a03f231a145-us20
 //LIst id  c432dbf348
